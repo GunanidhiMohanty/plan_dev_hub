@@ -1,0 +1,25 @@
+.example-sidenav-content {
+    display: flex;
+    height: 700%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  .example-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  .play_button {
+    position:absolute;
+transition: .5s ease;
+    left: -275px;
+    top: -13px;
+    
+}
+.example-sidenav {
+    padding: 53px;
+    top: 64px;
+
+}

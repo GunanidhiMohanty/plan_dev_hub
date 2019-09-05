@@ -1,0 +1,68 @@
+<div *ngIf="!isExcel" class="container-fluid">
+
+  <div class="row">
+    <div *ngFor="let hero of heroes">
+      <div class="col-sm-3">
+        <br>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title style="font-size: 22px;">{{hero.lob}}</mat-card-title>
+          </mat-card-header>
+        <mat-card-content> {{hero.description}} </mat-card-content>
+          <img mat-card-image  [src]="hero.fullImagePath" alt="Photo of a Shiba Inu">
+          
+          <mat-card-actions>
+            <button class="btn btn-link " mat-button (click)="doStuff()">Details</button>
+            
+          </mat-card-actions>
+          
+          <mat-card-footer *ngIf="hero.isShowMuleApi" style='padding-left : 130px' >
+              <img class="icon"  mat-card-image   [src]="fullImagePath" alt="Photo of a Shiba Inu"> 
+          </mat-card-footer>
+          
+        </mat-card>
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isExcel" class="container-fluid">
+  <div class="row">
+
+    <div class="col">
+<br>
+<br>
+<br>
+
+<p>The Claims Pricer API allows you to transmit X12 transactions. The API is designed according to REST (Representational State Transfer) principles. The API uses JavaScript Object Notation (JSON) for requests and responses, and also allows batch processing of ASC X12 5010 compatible EDI files. All API traffic is encrypted over HTTPS and authentication is handled with OAuth2.</p>
+     
+
+
+
+
+
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-3">
+    
+    
+
+
+<a href="https://anypoint.mulesoft.com/exchange/9ec9cc49-24c4-4c21-9667-46d1f3ad7cd5/getsingleclaim/">
+<button mat-raised-button >Go To API</button>
+</a> 
+ 
+
+        
+    <div class="col-sm-3"></div>
+  
+
+  </div>
+</div>
