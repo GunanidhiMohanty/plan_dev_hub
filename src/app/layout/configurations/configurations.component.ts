@@ -10,12 +10,12 @@ import { APIService } from '../../shared/services/APIService';
 })
 export class ConfigurationsComponent implements OnInit {
   fullImagePath: string;
-  isExcel: boolean;
+  isExcel: boolean= false;
   newProviderList: Array<Provider> = new Array<Provider>();
   //images: Array<string> = new Array<String>;
   public displayComponent;
   public numbers;
-  public filteredFriends;
+  public filteredFriends:boolean;
   public provider: Provider;
   showMuleApi:boolean;
   public listProvider: Array<Provider>;
@@ -80,29 +80,40 @@ export class ConfigurationsComponent implements OnInit {
       this.displayComponent = 'claims';
       this._APIService.setproviderListDisplay(this.newProviderList);
       this.loadValues();
+      this.showMuleApi=true;
+      // this._APIService._isExcel=false;
+      // this._APIService.setisExcel(true);
 
     }
     if (value == 'member') {
       this.displayComponent = 'member';
       this.loadValues();
       console.log(this.displayComponent);
+      this.showMuleApi=true;
 
     }
     if (value == 'provider') {
       this.displayComponent = 'provider';
       this.loadValues();
+      this.showMuleApi=true;
     }
   }
 
   ngOnInit() {
-
-    console.log('Faiz');
-
-  }
-  loadValues() {
     this._APIService.get().subscribe((list: Provider[]) => {
       this.listProvider = list;
+    },
+      error => { console.log(error) }
+    );
+
+  }
+
+
+  
+  loadValues() {
       if (this.displayComponent == 'claims') {
+        console.log(this.showMuleApi);
+       //this._APIService.setisExcel(true);
         this.numbers = [
           {
             lob: 'Claims Pricer',
@@ -300,9 +311,14 @@ export class ConfigurationsComponent implements OnInit {
           });
         });
       }
-    },
-      error => { console.log(error) }
-    );
 
+  }
+  show(value){
+    console.log("emitted");
+    console.log(value);
+    this.filteredFriends=value;
+    if(value==false){
+      this.isExcel=false;
+    }
   }
 }

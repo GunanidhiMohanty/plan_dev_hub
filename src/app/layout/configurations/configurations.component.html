@@ -37,9 +37,9 @@
 
 <div class="container">
   <div class="row">
-    <app-charts *ngIf="displayComponent=='provider'" [heroes]="numbers" [showMuleApi]="showMuleApi"></app-charts>
-    <app-charts *ngIf="displayComponent=='member'"  [heroes]="numbers" [showMuleApi]="showMuleApi"></app-charts>
-    <app-charts *ngIf="displayComponent=='claims'" [heroes]="numbers" [showMuleApi]="showMuleApi" ></app-charts>
+    <app-charts *ngIf="displayComponent=='provider' " [heroes]="numbers" (flag)="show($event)" [isExcel]="isExcel"></app-charts>
+    <app-charts *ngIf="displayComponent=='member'"  [heroes]="numbers" (flag)="show($event)" [isExcel]="isExcel"></app-charts>
+    <app-charts *ngIf="displayComponent=='claims'" [heroes]="numbers" (flag)="show($event)" [isExcel]="isExcel"></app-charts>
   </div>
 </div>
 </div>

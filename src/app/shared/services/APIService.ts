@@ -5,6 +5,8 @@ import { Http } from '@angular/http';
 import { } from '@angular/http';
 import { Observable } from 'rxjs';
 
+export var _isExcel:boolean=false;
+
 @Injectable()
 export class APIService {
   constructor(private httpClient: HttpClient, private http: Http) { }

@@ -1,6 +1,6 @@
 import { Provider } from './../../shared/modals/provider';
-import { APIService } from './../../shared/services/APIService';
-import { Component, OnInit, Input } from '@angular/core';
+import { APIService, _isExcel } from './../../shared/services/APIService';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient } from '@angular/common/http';
@@ -16,18 +16,21 @@ import { HttpClient } from '@angular/common/http';
 export class ChartsComponent implements OnInit {
     // bar chart
     @Input() heroes: string[];
-    @Input() showMuleApi:boolean;
+    @Input() isExcel: boolean;
+    @Output() flag : EventEmitter<any> = new EventEmitter();;
     public  url: string;
     public token: string;
-    public isExcel = false;;
+    //public isExcel = false;
     fullImagePath: string;
     public provider: Provider;
     constructor(private _APIService:APIService) {
-
     }
-    
+    get countryCodes() { return _isExcel; }
     doStuff() {
-        this.isExcel = true;
+       this.isExcel = true;
+        //this.flag= false;
+        this.flag.emit(false);
+       
     }
     openMule(){
         this._APIService.getLoggedinUser(this.url,this.token).subscribe(
@@ -37,7 +40,10 @@ export class ChartsComponent implements OnInit {
             );  
     }
     ngOnInit() {
+       
     this.fullImagePath='../../../assets/API-icon.png';
+    console.log("called again");
+    console.log(this.flag);
         this._APIService.get()
             .subscribe(
             (data:Provider) => { //this.provider= data;
