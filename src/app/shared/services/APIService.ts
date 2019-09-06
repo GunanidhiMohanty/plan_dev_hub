@@ -5,10 +5,15 @@ import { Http } from '@angular/http';
 import { } from '@angular/http';
 import { Observable } from 'rxjs';
 
-export var _isExcel:boolean=false;
-
+export var _isExcel:boolean=true;
+export function setexcel(val: boolean) {
+  _isExcel = val;
+}
 @Injectable()
 export class APIService {
+    apidetails(): any {
+      return this.httpClient.get('http://10.31.91.58:8080/getApi');
+    }
   constructor(private httpClient: HttpClient, private http: Http) { }
   private _providerListDisplay: Array<Provider> = new Array<Provider>();
   public getproviderListDisplay(): Array<Provider> {

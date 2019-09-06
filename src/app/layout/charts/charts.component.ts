@@ -1,12 +1,6 @@
 import { Provider } from './../../shared/modals/provider';
-import { APIService, _isExcel } from './../../shared/services/APIService';
+import { APIService, _isExcel, setexcel } from './../../shared/services/APIService';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
-
-
-
 
 @Component({
     selector: 'app-charts',
@@ -17,42 +11,54 @@ export class ChartsComponent implements OnInit {
     // bar chart
     @Input() heroes: string[];
     @Input() isExcel: boolean;
-    @Output() flag : EventEmitter<any> = new EventEmitter();;
-    public  url: string;
+    @Output() flag: EventEmitter<any> = new EventEmitter();
+    public dumy: string;
+    public url: string;
     public token: string;
     //public isExcel = false;
     fullImagePath: string;
     public provider: Provider;
-    constructor(private _APIService:APIService) {
+    description: string;
+    constructor(private _APIService: APIService) {
     }
-    get countryCodes() { return _isExcel; }
-    doStuff() {
-       this.isExcel = true;
+    countryCodes() {
+        return _isExcel;
+    }
+    doStuff(value) {
+        setexcel(false);
         //this.flag= false;
-        this.flag.emit(false);
-       
+        console.log("Hi dostuff ");
+        console.log(_isExcel);
+        console.log(value);
+        this.dumy=value;
+        console.log();
+        // this.flag.emit(false);
+        this._APIService.apidetails().subscribe(data => this.description = data);
+        
+
+
     }
-    openMule(){
-        this._APIService.getLoggedinUser(this.url,this.token).subscribe(
+    openMule() {
+        this._APIService.getLoggedinUser(this.url, this.token).subscribe(
             (data) => { //this.provider= data;
                 console.log(data);
             }
-            );  
+        );
     }
     ngOnInit() {
-       
-    this.fullImagePath='../../../assets/API-icon.png';
-    console.log("called again");
-    console.log(this.flag);
+
+        this.fullImagePath = '../../../assets/API-icon.png';
+        console.log("called again");
+        console.log(this.flag);
         this._APIService.get()
             .subscribe(
-            (data:Provider) => { //this.provider= data;
-                 this.url = data[0].assetUrl;
-                 this.token = data[0].assetLink;
-                  this.provider=data;
-                  console.log(this.heroes);
-            }
-            );  
-     }
+                (data: Provider) => { //this.provider= data;
+                    this.url = data[0].assetUrl;
+                    this.token = data[0].assetLink;
+                    this.provider = data;
+                    console.log(this.heroes);
+                }
+            );
+    }
 
 }
