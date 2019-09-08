@@ -1,6 +1,12 @@
-{
-  "/api": {
-    "target": "http://54.227.32.140:8080",
-    "secure": false
+   {
+  "/getApi/Healthcare": {
+	 "target": "http://localhost:8080",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/organization/portal/assets": {
+	 "target": "http://api-retrieveassets-exchange-dev.us-e2.cloudhub.io",
+    "secure": false,
+    "changeOrigin": true
   }
 }

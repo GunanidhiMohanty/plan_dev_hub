@@ -1,46 +1,40 @@
 <div *ngIf="countryCodes()" class="container-fluid">
-
   <div class="row">
-    <div *ngFor="let hero of heroes">
-      <div class="col-sm-3">
+    <div *ngFor="let list of cardsList">
+      <div class="col-sm-5" style="padding-left:250px">
         <br>
         <mat-card class="example-card">
           <mat-card-header>
-            <mat-card-title style="font-size: 22px;">{{hero.lob}}</mat-card-title>
+            <mat-card-title>{{list.apiName}}</mat-card-title>
+            <mat-card-subtitle>{{list.apiClassification}}</mat-card-subtitle>
           </mat-card-header>
-        <mat-card-content> {{hero.description}} </mat-card-content>
-          <img mat-card-image  [src]="hero.fullImagePath" alt="Photo of a Shiba Inu">
-          
-          <mat-card-actions>
-            <button class="btn btn-link " mat-button (click)="doStuff(hero.lob)">Details</button>
-            
+          <mat-card-content style="overflow:hidden">
+            {{list.apiDescription}} </mat-card-content>
+          <img mat-card-image [src]="list.imageURL">
+          <mat-card-actions style="padding-left:50px">
+            <button class="btn btn-link " mat-button (click)="diaplayDescription(list.apiName, list.isMuleApi)">Details</button>
           </mat-card-actions>
-          
-          <mat-card-footer *ngIf="hero.isShowMuleApi" style='padding-left : 130px' >
-              <img class="icon"  mat-card-image   [src]="fullImagePath" alt="Photo of a Shiba Inu"> 
-          </mat-card-footer>
-          
-        </mat-card>
+          <mat-card-footer *ngIf="list.isMuleApi" style='padding-left : 127px'>
 
-        
+            <img class="icon" mat-card-image [src]="fullImagePath">
+          </mat-card-footer>
+        </mat-card>
       </div>
     </div>
   </div>
 </div>
-<div *ngIf ="!countryCodes()" class="container-fluid">
+<div *ngIf="!countryCodes()" class="container-fluid">
   <div class="row">
-
     <div class="col">
-<br>
-<br>
-<br>
-<div *ngFor="let hero of heroes">
-  <p *ngIf="hero.lob == dumy" style="padding-left:250px">
-    {{hero.fulldescription}}
-  </p>
-</div>
-  </div>
-
+      <br>
+      <br>
+      <br>
+      <div *ngFor="let list of cardsList">
+        <p *ngIf="list.apiName == cardClicked" style="padding-left:250px">
+          {{list.apiLongDescription}}
+        </p>
+      </div>
+    </div>
   </div>
   <br>
   <br>
@@ -48,18 +42,9 @@
   <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-3">
-    
-    
-
-
-<a href="https://anypoint.mulesoft.com/exchange/9ec9cc49-24c4-4c21-9667-46d1f3ad7cd5/getsingleclaim/" target="_blank">
-<button  mat-raised-button >Go To API</button>
-</a> 
- 
-
-        
-    <div class="col-sm-3"></div>
-  
-
+      <a *ngIf="isMuleApi"  [href]="this.url" target="_blank">
+        <button  mat-raised-button >Go To API</button>
+      </a>
+      <div class="col-sm-3"></div>
+    </div>
   </div>
-</div>

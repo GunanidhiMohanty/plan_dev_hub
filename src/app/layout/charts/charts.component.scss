@@ -53,6 +53,18 @@
     background-color: #3f525c;
     border-radius: 2px;
  }
+ .mat-card-image[_ngcontent-c5] {
+  width: 64px;
+  height: 47px;
+  margin: 28px -88px 32px 103px;
+}
+ .mat-card-content[_ngcontent-c5] {
+  box-sizing: border-box;
+  font-size: medium;
+}
+.mat-card-title {
+  font-size: 27px;
+}
   .module:hover {
     background-color: #EEE;
     cursor: pointer;
@@ -86,8 +98,9 @@
  
   display: block;
 
-  width: 217px;
-  height: 280px;
+ width: 315px;
+    height: 303px;
+
   }
   .mat-card-header .mat-card-subtitle:not(:first-child) {
     margin-top: -8px;

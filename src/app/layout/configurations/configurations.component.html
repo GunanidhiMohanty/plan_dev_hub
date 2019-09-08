@@ -37,10 +37,13 @@
 
 <div class="container">
   <div class="row">
-    <app-charts *ngIf="displayComponent=='provider' " [heroes]="numbers" (flag)="show($event)" [isExcel]="isExcel"></app-charts>
-    <app-charts *ngIf="displayComponent=='member'"  [heroes]="numbers" (flag)="show($event)" [isExcel]="isExcel"></app-charts>
-    <app-charts *ngIf="displayComponent=='claims'" [heroes]="numbers" (flag)="show($event)" [isExcel]="isExcel"></app-charts>
-  </div>
+    
+    <app-charts *ngIf="displayComponent=='provider' " [cardsList]="newCardsList" ></app-charts>
+    <app-charts *ngIf="displayComponent=='member'"  [cardsList]="newCardsList" ></app-charts>
+    <app-charts *ngIf="displayComponent=='claims'" [cardsList]="newCardsList" ></app-charts>
+  
+
+</div>
 </div>
 </div>
 </div>

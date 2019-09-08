@@ -6,15 +6,17 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ChartsRoutingModule } from './charts-routing.module';
 import { ChartsComponent } from './charts.component';
 import { FormsModule } from '@angular/forms';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
     imports: [
-        CommonModule,
+        CommonModule, 
         ChartsRoutingModule,
         Ng2Charts,
         MatCardModule,
         MatGridListModule,
         FormsModule,
+        MatTooltipModule,
     ],
     declarations: [ChartsComponent],
     bootstrap: [ChartsComponent],
