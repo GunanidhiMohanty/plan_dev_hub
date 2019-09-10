@@ -24,9 +24,9 @@ export class APIService {
       password: 'Addanki@2662'
     };
 
-    return this.httpClient.post("http://api-retrieveassets-exchange-qa.us-e2.cloudhub.io/organization/portal/assets", creditentials)
+    return this.httpClient.post("//api-retrieveassets-exchange-qa.us-e2.cloudhub.io/organization/portal/assets", creditentials)
   }
   getLoggedinUser() {
-    return this.httpClient.get('http://localhost:8080/getApi/Healthcare');
+    return this.httpClient.get('https://hcare-planhub.cfapps.io/getApi/Healthcare');
   }
 } 

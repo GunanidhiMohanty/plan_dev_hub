@@ -40,7 +40,7 @@ export class ConfigurationsComponent implements OnInit {
     if (value == 'member') {
       this.displayComponent = 'member';
       this.loadValues();
-      console.log(this.displayComponent);
+      
       setCardDetail(true);
     }
     if (value == 'provider') {

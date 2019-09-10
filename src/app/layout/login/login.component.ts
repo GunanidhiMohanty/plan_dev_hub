@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
     onLogin() {
         if (this.form.value.username == 'admin' && this.form.value.password == 'admin') {
-            console.log(this.form.value.username);
+            
         this.router.navigate(["/healthcare"]);
         }
     }
