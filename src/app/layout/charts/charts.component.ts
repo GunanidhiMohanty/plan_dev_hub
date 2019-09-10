@@ -18,7 +18,7 @@ export class ChartsComponent implements OnInit {
     countryCodes() {
         return _isCardDetail;
     }
-    diaplayDescription(value) {
+    diaplayDescription(value,value1) {
         setCardDetail(false);
         this.cardClicked = value;
 

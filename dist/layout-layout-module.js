@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"countryCodes()\" class=\"container-fluid\">\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"/charts.component.scss\">\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let list of cardsList\">\r\n      <div class=\"col-sm-4\" style=\"padding-left:60px\">\r\n        <br>\r\n        <mat-card class=\"example-card\">\r\n          <mat-card-header>\r\n            <mat-card-title>{{list.apiName}}</mat-card-title>\r\n            <mat-card-subtitle>{{list.apiClassification}}</mat-card-subtitle>\r\n          </mat-card-header>\r\n          <mat-card-content style=\"overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;padding-left:\r\n          16px \" data-toggle=\"tooltip\" data-placement=\"top\" title={{list.apiDescription}} >\r\n            {{list.apiDescription}} </mat-card-content>\r\n          <img mat-card-image [src]=\"list.imageURL\">\r\n          <mat-card-actions style=\"padding-left:50px;padding-inline: 10px\">\r\n            <button  mat-button class=\".btn-block\" (click)=\"diaplayDescription(list.apiName, list.MuleApi)\">Details</button>\r\n          </mat-card-actions>\r\n          <div *ngIf=\"list.muleApi\" style=\"margin-left: 125px;\r\n          padding-bottom: 39px;\r\n          margin-top: -20px;\r\n      \">\r\n            <img mat-card-image [src]=\"fullImagePath\"></div>\r\n          <!-- <mat-card-footer  style='padding-left : 90px'>\r\n\r\n            \r\n          </mat-card-footer> -->\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div *ngIf=\"!countryCodes()\" class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <br>\r\n      <br>\r\n      <br>\r\n      <div *ngFor=\"let list of cardsList\">\r\n        <div *ngIf=\"list.apiName == cardClicked\">\r\n          <div style=\"padding-left:250px\" [innerHTML]= \"list.apiLongDescription\">\r\n            \r\n          </div>\r\n          <a style=\"padding-left:350px\"  *ngIf=\"list.muleApi\" [href]=\"this.url\" target=\"_blank\">\r\n            <button  mat-raised-button >Go To API</button>\r\n          </a>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>"
+module.exports = "<div *ngIf=\"countryCodes()\" class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let list of cardsList\">\r\n      <div class=\"col-sm-4\" style=\"padding-left:60px\">\r\n        <br>\r\n        <mat-card class=\"example-card\">\r\n          <mat-card-header>\r\n            <mat-card-title>{{list.apiName}}</mat-card-title>\r\n            <mat-card-subtitle>{{list.apiClassification}}</mat-card-subtitle>\r\n          </mat-card-header>\r\n          <mat-card-content style=\"overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;padding-left:\r\n          16px \" data-toggle=\"tooltip\" data-placement=\"top\" title={{list.apiDescription}} >\r\n            {{list.apiDescription}} </mat-card-content>\r\n          <img mat-card-image [src]=\"list.imageURL\">\r\n          <mat-card-actions style=\"padding-left:50px;padding-inline: 10px\">\r\n            <button  mat-button class=\".btn-block\" (click)=\"diaplayDescription(list.apiName, list.MuleApi)\">Details</button>\r\n          </mat-card-actions>\r\n          <div *ngIf=\"list.muleApi\" style=\"margin-left: 125px;\r\n          padding-bottom: 39px;\r\n          margin-top: -20px;\r\n      \">\r\n            <img mat-card-image [src]=\"fullImagePath\"></div>\r\n          <!-- <mat-card-footer  style='padding-left : 90px'>\r\n            \r\n          </mat-card-footer> -->\r\n        </mat-card>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div *ngIf=\"!countryCodes()\" class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <div class=\"col\">\r\n      <br>\r\n      <br>\r\n      <br>\r\n      <div *ngFor=\"let list of cardsList\">\r\n        <div *ngIf=\"list.apiName == cardClicked\">\r\n          <div style=\"padding-left:250px\" [innerHTML]= \"list.apiLongDescription\">\r\n            \r\n          </div>\r\n          <a style=\"padding-left:350px\"  *ngIf=\"list.muleApi\" [href]=\"list.assertURL\" target=\"_blank\">\r\n            <button  mat-raised-button >Go To API</button>\r\n          </a>\r\n\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>"
 
 /***/ }),
 
@@ -52,7 +52,7 @@ var ChartsComponent = /** @class */ (function () {
     ChartsComponent.prototype.countryCodes = function () {
         return _shared_services_APIService__WEBPACK_IMPORTED_MODULE_0__["_isCardDetail"];
     };
-    ChartsComponent.prototype.diaplayDescription = function (value) {
+    ChartsComponent.prototype.diaplayDescription = function (value, value1) {
         Object(_shared_services_APIService__WEBPACK_IMPORTED_MODULE_0__["setCardDetail"])(false);
         this.cardClicked = value;
     };
@@ -160,7 +160,7 @@ var TopnavComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n   <div >\r\n    <link href=\"//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\r\n    <div >\r\n    <div class=\"\">\r\n      <ul class=\"nav navbar-nav\">\r\n        <div>\r\n      <button type=\"button\" (click)=\"selectedValue('claims')\" class=\"btn btn-primary btn-block\">Claims</button>\r\n          \r\n    \r\n        <button type=\"button\"  (click)=\"selectedValue('member')\" class=\"btn btn-primary btn-block\">Members</button>\r\n        \r\n        <button type=\"button\"  (click)=\"selectedValue('provider')\" class=\"btn btn-primary btn-block\">Providers</button>\r\n      \r\n        <button type=\"button\" (click)=\"selectedValue('')\" class=\"btn btn-primary btn-block\">Manage Medical Costs </button>\r\n        \r\n        <button type=\"button\" (click)=\"selectedValue('')\" class=\"btn btn-primary btn-block\">Improve Quality of Care</button>\r\n      \r\n        <button type=\"button\" (click)=\"selectedValue('')\" class=\"btn btn-primary btn-block\">Setup Products & Benefits</button>\r\n    \r\n        <button type=\"button\" (click)=\"selectedValue('')\" class=\"btn btn-primary btn-block\">Manage Billings</button>\r\n    \r\n        <button type=\"button\" (click)=\"selectedValue('')\" class=\"btn btn-primary btn-block\">Accounts Receivables</button>\r\n     \r\n       <div style=\"padding:30px;font-size: 1.1em ; color: black\">\r\n        <a href=\"http://healthinnovationhub.s3-website-us-east-1.amazonaws.com/\" style=\"color:rgb(81, 11, 245); \" class=\"w3-btn w3-black\">Product Development Innovation Hub</a>\r\n      </div>\r\n       \r\n        <!-- <button type=\"button\" (click)=\"selectedValue('claims')\" class=\"btn btn-primary btn-block\">Manage Billings & Accounts Receivables</button>\r\n        <br>\r\n        <button type=\"button\" (click)=\"selectedValue('claims')\" class=\"btn btn-primary btn-block\">Manage Billings & Accounts Receivables</button>\r\n        <br> -->\r\n    \r\n        </div>\r\n      </ul>\r\n    </div>\r\n    \r\n    <div class=\"container\">\r\n      <div class=\"content-wrapper\">\r\n        \r\n        <app-charts *ngIf=\"displayComponent=='provider' \" [cardsList]=\"newCardsList\" ></app-charts>\r\n        <app-charts *ngIf=\"displayComponent=='member'\"  [cardsList]=\"newCardsList\" ></app-charts>\r\n        <app-charts *ngIf=\"displayComponent=='claims'\" [cardsList]=\"newCardsList\" ></app-charts>\r\n      \r\n    \r\n    </div>\r\n    </div>\r\n    </div>\r\n    </div>\r\n    "
+module.exports = "\r\n   <div >\r\n    <link href=\"//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css\" rel=\"stylesheet\" id=\"bootstrap-css\">\r\n    <div >\r\n    <div class=\"\">\r\n      <ul class=\"nav navbar-nav\">\r\n        <div>\r\n      <button id=\"claims\" type=\"button\" (click)=\"selectedValue('claims')\" class=\"btn btn-primary btn-block\">Claims</button>\r\n          \r\n    \r\n        <button type=\"button\"  (click)=\"selectedValue('member')\" class=\"btn btn-primary btn-block\">Members</button>\r\n        \r\n        <button type=\"button\"  (click)=\"selectedValue('provider')\" class=\"btn btn-primary btn-block\">Providers</button>\r\n      \r\n        <button type=\"button\" (click)=\"selectedValue('')\" class=\"btn btn-primary btn-block\">Manage Medical Costs </button>\r\n        \r\n        <button type=\"button\" (click)=\"selectedValue('')\" class=\"btn btn-primary btn-block\">Improve Quality of Care</button>\r\n      \r\n        <button type=\"button\" (click)=\"selectedValue('')\" class=\"btn btn-primary btn-block\">Setup Products & Benefits</button>\r\n    \r\n        <button type=\"button\" (click)=\"selectedValue('')\" class=\"btn btn-primary btn-block\">Manage Billings</button>\r\n    \r\n        <button type=\"button\" (click)=\"selectedValue('')\" class=\"btn btn-primary btn-block\">Accounts Receivables</button>\r\n     \r\n       <div style=\"padding:30px;font-size: 1.1em ; color: black\">\r\n        <a href=\"http://healthinnovationhub.s3-website-us-east-1.amazonaws.com/\" style=\"color:rgb(81, 11, 245); \" class=\"w3-btn w3-black\">Product Development Innovation Hub</a>\r\n      </div>\r\n       \r\n        <!-- <button type=\"button\" (click)=\"selectedValue('claims')\" class=\"btn btn-primary btn-block\">Manage Billings & Accounts Receivables</button>\r\n        <br>\r\n        <button type=\"button\" (click)=\"selectedValue('claims')\" class=\"btn btn-primary btn-block\">Manage Billings & Accounts Receivables</button>\r\n        <br> -->\r\n    \r\n        </div>\r\n      </ul>\r\n    </div>\r\n    \r\n    <div class=\"container\">\r\n      <div class=\"content-wrapper\">\r\n        \r\n        <app-charts *ngIf=\"displayComponent=='provider' \" [cardsList]=\"newCardsList\" ></app-charts>\r\n        <app-charts *ngIf=\"displayComponent=='member'\"  [cardsList]=\"newCardsList\" ></app-charts>\r\n        <app-charts *ngIf=\"displayComponent=='claims'\" [cardsList]=\"newCardsList\" ></app-charts>\r\n        <app-charts *ngIf=\"displayComponent=='undefined'\" [cardsList]=\"newCardsList\" ></app-charts>\r\n    \r\n    </div>\r\n    </div>\r\n    </div>\r\n    </div>\r\n    "
 
 /***/ }),
 
@@ -218,7 +218,6 @@ var ConfigurationsComponent = /** @class */ (function () {
         if (value == 'member') {
             this.displayComponent = 'member';
             this.loadValues();
-            console.log(this.displayComponent);
             Object(_shared_services_APIService__WEBPACK_IMPORTED_MODULE_1__["setCardDetail"])(true);
         }
         if (value == 'provider') {
@@ -235,6 +234,8 @@ var ConfigurationsComponent = /** @class */ (function () {
         this._APIService.getLoggedinUser().subscribe(function (data) {
             _this.listDomainsBackened = data;
         });
+        var element = document.getElementById('claims');
+        element.click();
     };
     ConfigurationsComponent.prototype.loadValues = function () {
         var _this = this;
@@ -245,6 +246,7 @@ var ConfigurationsComponent = /** @class */ (function () {
                     if (_this.listProvider.find(function (api) { return (api.apiName.trim() === apnNm.apiName.trim()); })) {
                         apnNm.muleApi = true;
                         apnNm.apiDescription = _this.listProvider.find(function (prov) { return (prov.apiName.trim() === apnNm.apiName); }).description;
+                        apnNm.assertURL = _this.listProvider.find(function (prov) { return (prov.apiName.trim() === apnNm.apiName); }).assetUrl;
                     }
                 });
             });
@@ -263,8 +265,14 @@ var ConfigurationsComponent = /** @class */ (function () {
             this.listDomainsBackened.forEach(function (obj) {
                 obj.lobList.forEach(function (obj1) {
                     if (obj1.lobName == 'member') {
-                        obj1.apiList.forEach(function (obj2) {
-                            _this.newCardsList.push(obj2);
+                        _this.listProvider.forEach(function (provider) {
+                            obj1.apiList.forEach(function (obj2) {
+                                if (obj2.apiName.trim() === provider.apiName.trim()) {
+                                    obj2.apiDescription = provider.description;
+                                    obj2.muleApi = true;
+                                    obj2.assertURL = provider.assetUrl;
+                                }
+                            });
                         });
                     }
                 });
@@ -272,13 +280,8 @@ var ConfigurationsComponent = /** @class */ (function () {
             this.listDomainsBackened.forEach(function (obj) {
                 obj.lobList.forEach(function (obj1) {
                     if (obj1.lobName == 'member') {
-                        _this.listProvider.forEach(function (provider) {
-                            obj1.apiList.forEach(function (obj2) {
-                                if (obj2.apiName.trim() === provider.apiName.trim()) {
-                                    obj2.apiDescription = provider.description;
-                                    obj2.muleApi = true;
-                                }
-                            });
+                        obj1.apiList.forEach(function (obj2) {
+                            _this.newCardsList.push(obj2);
                         });
                     }
                 });
@@ -289,8 +292,14 @@ var ConfigurationsComponent = /** @class */ (function () {
             this.listDomainsBackened.forEach(function (obj) {
                 obj.lobList.forEach(function (obj1) {
                     if (obj1.lobName == 'provider') {
-                        obj1.apiList.forEach(function (obj2) {
-                            _this.newCardsList.push(obj2);
+                        _this.listProvider.forEach(function (provider) {
+                            obj1.apiList.forEach(function (obj2) {
+                                if (obj2.apiName.trim() === provider.apiName.trim()) {
+                                    obj2.apiDescription = provider.description;
+                                    obj2.muleApi = true;
+                                    obj2.assertURL = provider.assetUrl;
+                                }
+                            });
                         });
                     }
                 });
@@ -298,13 +307,8 @@ var ConfigurationsComponent = /** @class */ (function () {
             this.listDomainsBackened.forEach(function (obj) {
                 obj.lobList.forEach(function (obj1) {
                     if (obj1.lobName == 'provider') {
-                        _this.listProvider.forEach(function (provider) {
-                            obj1.apiList.forEach(function (obj2) {
-                                if (obj2.apiName.trim() === provider.apiName.trim()) {
-                                    obj2.apiDescription = provider.description;
-                                    obj2.muleApi = true;
-                                }
-                            });
+                        obj1.apiList.forEach(function (obj2) {
+                            _this.newCardsList.push(obj2);
                         });
                     }
                 });
@@ -572,7 +576,6 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.ngOnInit = function () { };
     LoginComponent.prototype.onLogin = function () {
         if (this.form.value.username == 'admin' && this.form.value.password == 'admin') {
-            console.log(this.form.value.username);
             this.router.navigate(["/healthcare"]);
         }
     };

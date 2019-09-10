@@ -6,5 +6,5 @@ export class ApiDetails {
     public apiClassification: string;
     public imageURL: string;
     public muleApi: boolean;
-
+    public assertURL: string;
 }

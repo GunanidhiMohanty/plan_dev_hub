@@ -1,5 +1,4 @@
 <div *ngIf="countryCodes()" class="container-fluid">
-  
   <div class="row">
     <div *ngFor="let list of cardsList">
       <div class="col-sm-4" style="padding-left:60px">
@@ -22,7 +21,6 @@
       ">
             <img mat-card-image [src]="fullImagePath"></div>
           <!-- <mat-card-footer  style='padding-left : 90px'>
-
             
           </mat-card-footer> -->
         </mat-card>
@@ -41,8 +39,8 @@
           <div style="padding-left:250px" [innerHTML]= "list.apiLongDescription">
             
           </div>
-          <a style="padding-left:350px"  *ngIf="list.muleApi" [href]="this.url" target="_blank">
-            <button  mat-raised-button >Go To API</button>
+          <a style="padding-left:350px"  *ngIf="list.muleApi" [href]="list.assertURL" target="_blank">
+            <button  mat-raised-button >Go To API</button>
           </a>
 
         </div>

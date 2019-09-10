@@ -5,7 +5,7 @@
     <div class="">
       <ul class="nav navbar-nav">
         <div>
-      <button type="button" (click)="selectedValue('claims')" class="btn btn-primary btn-block">Claims</button>
+      <button id="claims" type="button" (click)="selectedValue('claims')" class="btn btn-primary btn-block">Claims</button>
           
     
         <button type="button"  (click)="selectedValue('member')" class="btn btn-primary btn-block">Members</button>
@@ -41,7 +41,7 @@
         <app-charts *ngIf="displayComponent=='provider' " [cardsList]="newCardsList" ></app-charts>
         <app-charts *ngIf="displayComponent=='member'"  [cardsList]="newCardsList" ></app-charts>
         <app-charts *ngIf="displayComponent=='claims'" [cardsList]="newCardsList" ></app-charts>
-      
+        <app-charts *ngIf="displayComponent=='undefined'" [cardsList]="newCardsList" ></app-charts>
     
     </div>
     </div>

@@ -1,6 +1,6 @@
 import { ApiDetails } from './../../shared/modals/apidetails';
 import { Provider } from './../../shared/modals/provider';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { APIService, setCardDetail } from '../../shared/services/APIService';
 import { Domains } from '../../shared/modals/domain';
 
@@ -20,6 +20,7 @@ export class ConfigurationsComponent implements OnInit {
   public listProvider: Array<Provider>;
   public newCardsList = [];
   public listDomainsBackened: Array<Domains>;
+  public urls;
 
   constructor(private _APIService: APIService) {
 
@@ -58,10 +59,16 @@ export class ConfigurationsComponent implements OnInit {
     );
     this._APIService.getLoggedinUser().subscribe((data: Domains[]) => {
       this.listDomainsBackened = data;
+      let element:HTMLElement = document.getElementById('claims') as HTMLElement;
+      element.click();
     });
+    
+  
   }
 
-
+  ngAfterViewInit() {
+  
+  }
 
   loadValues() {
     if (this.displayComponent == 'claims') {
@@ -71,7 +78,7 @@ export class ConfigurationsComponent implements OnInit {
           if (this.listProvider.find(api => (api.apiName.trim() === apnNm.apiName.trim()))) {
             apnNm.muleApi = true;
             apnNm.apiDescription = this.listProvider.find(prov => (prov.apiName.trim() === apnNm.apiName)).description;
-
+            apnNm.assertURL = this.listProvider.find(prov => (prov.apiName.trim() === apnNm.apiName)).assetUrl;
           }
         });
       });
@@ -91,6 +98,25 @@ export class ConfigurationsComponent implements OnInit {
     }
     if (this.displayComponent == 'member') {
       this.newCardsList = [];
+     
+      this.listDomainsBackened.forEach(obj => {
+        obj.lobList.forEach(obj1 => {
+          if (obj1.lobName == 'member') {
+            this.listProvider.forEach(provider => {
+              obj1.apiList.forEach(obj2 => {
+                if (obj2.apiName.trim() === provider.apiName.trim()) {
+                  obj2.apiDescription = provider.description;
+                  obj2.muleApi = true;
+                  obj2.assertURL=provider.assetUrl;
+                  
+                }
+              })
+
+            })
+          }
+        });
+
+      });
       this.listDomainsBackened.forEach(obj => {
         obj.lobList.forEach(obj1 => {
           if (obj1.lobName == 'member') {
@@ -101,26 +127,28 @@ export class ConfigurationsComponent implements OnInit {
           }
 
         })
-      });
-      this.listDomainsBackened.forEach(obj => {
-        obj.lobList.forEach(obj1 => {
-          if (obj1.lobName == 'member') {
-            this.listProvider.forEach(provider => {
-              obj1.apiList.forEach(obj2 => {
-                if (obj2.apiName.trim() === provider.apiName.trim()) {
-                  obj2.apiDescription = provider.description;
-                  obj2.muleApi = true;
-                }
-              })
-
-            })
-          }
-        });
-
       });
     }
     if (this.displayComponent == 'provider') {
       this.newCardsList = [];
+    
+      this.listDomainsBackened.forEach(obj => {
+        obj.lobList.forEach(obj1 => {
+          if (obj1.lobName == 'provider') {
+            this.listProvider.forEach(provider => {
+              obj1.apiList.forEach(obj2 => {
+                if (obj2.apiName.trim() === provider.apiName.trim()) {
+                  obj2.apiDescription = provider.description;
+                  obj2.muleApi = true;
+                  obj2.assertURL=provider.assetUrl;
+                }
+              })
+
+            })
+          }
+        });
+
+      });
       this.listDomainsBackened.forEach(obj => {
         obj.lobList.forEach(obj1 => {
           if (obj1.lobName == 'provider') {
@@ -131,22 +159,6 @@ export class ConfigurationsComponent implements OnInit {
           }
 
         })
-      });
-      this.listDomainsBackened.forEach(obj => {
-        obj.lobList.forEach(obj1 => {
-          if (obj1.lobName == 'provider') {
-            this.listProvider.forEach(provider => {
-              obj1.apiList.forEach(obj2 => {
-                if (obj2.apiName.trim() === provider.apiName.trim()) {
-                  obj2.apiDescription = provider.description;
-                  obj2.muleApi = true;
-                }
-              })
-
-            })
-          }
-        });
-
       });
 
     }
