@@ -5,8 +5,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './layout.component.html',
     styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
     constructor() { }
-
-    ngOnInit() { }
+     template = '<h1>Abhinav</h1>'; // or your html   
 }

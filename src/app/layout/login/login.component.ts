@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { APIService } from '../shared/services/APIService';
+import { APIService } from '../../shared/services/APIService';
 import { FormGroup, FormControl } from '@angular/forms';
 
 
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     onLogin() {
         if (this.form.value.username == 'admin' && this.form.value.password == 'admin') {
             console.log(this.form.value.username);
-            this.router.navigate([""]);
+        this.router.navigate(["/healthcare"]);
         }
     }
 }

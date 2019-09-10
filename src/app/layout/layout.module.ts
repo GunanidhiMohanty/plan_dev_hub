@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 
 import { ChartsComponent } from './charts/charts.component';
 import { CommonModule } from '@angular/common';
@@ -14,7 +15,8 @@ import {
     MatTableModule,
     MatExpansionModule,
     MatAccordion,
-    MatDialogModule
+    MatDialogModule,
+    
     
     
 } from '@angular/material';
@@ -23,10 +25,11 @@ import { TopnavComponent } from './components/topnav/topnav.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfigurationsComponent } from './configurations/configurations.component';
 @NgModule({
     imports: [
+        ReactiveFormsModule,
         CommonModule,
         LayoutRoutingModule,
         MatToolbarModule,
@@ -47,7 +50,7 @@ import { ConfigurationsComponent } from './configurations/configurations.compone
         
     ],
    
-  declarations: [LayoutComponent, ChartsComponent, TopnavComponent,  ConfigurationsComponent,ChartsComponent]
+  declarations: [LayoutComponent, ChartsComponent, TopnavComponent,  ConfigurationsComponent,ChartsComponent,LoginComponent]
     
 })
 export class LayoutModule {}

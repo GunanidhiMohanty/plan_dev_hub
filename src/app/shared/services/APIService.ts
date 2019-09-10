@@ -27,6 +27,6 @@ export class APIService {
     return this.httpClient.post("http://api-retrieveassets-exchange-qa.us-e2.cloudhub.io/organization/portal/assets", creditentials)
   }
   getLoggedinUser() {
-    return this.httpClient.get('https://hcare-planhub.cfapps.io/getApi/Healthcare');
+    return this.httpClient.get('http://localhost:8080/getApi/Healthcare');
   }
 } 

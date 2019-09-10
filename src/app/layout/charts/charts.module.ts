@@ -7,6 +7,7 @@ import { ChartsRoutingModule } from './charts-routing.module';
 import { ChartsComponent } from './charts.component';
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     imports: [
@@ -17,6 +18,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         MatGridListModule,
         FormsModule,
         MatTooltipModule,
+        BrowserAnimationsModule,
     ],
     declarations: [ChartsComponent],
     bootstrap: [ChartsComponent],

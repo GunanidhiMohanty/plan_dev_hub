@@ -1,0 +1,215 @@
+/* DINProLight */
+@font-face {
+  font-family: 'DIN Pro';
+  src: url('fonts/DINPro-Light.eot'); /* IE9 Compat Modes */
+  src: url('fonts/DINPro-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/DINPro-Light.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/DINPro-Light.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/DINPro-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/DINPro-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+/* Monospaced (for code examples, logs, etc) */
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('fonts/SourceCodePro-Regular.eot'); /* IE9 Compat Modes */
+  src: url('fonts/SourceCodePro-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/SourceCodePro-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/SourceCodePro-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/SourceCodePro-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/SourceCodePro-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+/* Regular - OpenSans */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('fonts/OpenSans-Regular.eot'); /* IE9 Compat Modes */
+  src: url('fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/OpenSans-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/OpenSans-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/OpenSans-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/OpenSans-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+/* Semibold - OpenSansSemiBold */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('fonts/OpenSans-Semibold.eot'); /* IE9 Compat Modes */
+  src: url('fonts/OpenSans-Semibold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/OpenSans-Semibold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/OpenSans-Semibold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/OpenSans-Semibold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/OpenSans-Semibold.svg#svgFontName') format('svg'); /* Legacy iOS */
+
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+}
+/* Bold - OpenSansBold */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('fonts/OpenSans-Bold.eot'); /* IE9 Compat Modes */
+  src: url('fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/OpenSans-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/OpenSans-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/OpenSans-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/OpenSans-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+/* Light - OpenSansLight */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('fonts/OpenSans-Light.eot'); /* IE9 Compat Modes */
+  src: url('fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/OpenSans-Light.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/OpenSans-Light.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/OpenSans-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/OpenSans-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: 200;
+  font-style: normal;
+  font-display: block;
+}
+/* Light Italic - OpenSansLightItalic */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('fonts/OpenSans-LightItalic.eot'); /* IE9 Compat Modes */
+  src: url('fonts/OpenSans-LightItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/OpenSans-LightItalic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/OpenSans-LightItalic.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/OpenSans-LightItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('fonts/OpenSans-LightItalic.svg#svgFontName') format('svg'); /* Legacy iOS */
+  font-weight: 200;
+  font-style: italic;
+  font-display: block;
+}
+.anypoint-styles {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.anypoint-styles * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+.anypoint-styles b, .anypoint-styles strong {
+    font-weight: bold;
+  }
+.anypoint-styles ::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+.anypoint-styles :focus {
+    outline: 0;
+  }
+.anypoint-styles img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+  }
+.anypoint-styles table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+.anypoint-styles a {
+    text-decoration: none;
+    background-color: transparent;
+  }
+/* Separated these 3 any-link pseudo selectors in 3 different section
+   * because we cannot use a single section with commas
+   */
+.anypoint-styles :-webkit-any-link {
+    text-decoration: none;
+  }
+.anypoint-styles :-moz-any-link {
+    text-decoration: none;
+  }
+.anypoint-styles :link,.anypoint-styles :visited {
+    text-decoration: none;
+  }
+.anypoint-styles {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  color: #3A3B3C;
+}
+.anypoint-styles h1, .anypoint-styles h2, .anypoint-styles h3, .anypoint-styles h4, .anypoint-styles h5, .anypoint-styles h6 {
+    font-family: "DIN Pro", "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+  }
+.anypoint-styles h1 {
+    font-size: 31px;
+  }
+.anypoint-styles h2 {
+    font-size: 28px;
+  }
+.anypoint-styles h3 {
+    font-size: 25px;
+  }
+.anypoint-styles h4 {
+    font-size: 22px;
+  }
+.anypoint-styles h5 {
+    font-size: 19px;
+  }
+.anypoint-styles h6 {
+    font-size: 16px;
+  }
+.anypoint-styles h1, .anypoint-styles h2, .anypoint-styles h3 {
+    margin: 20px 0 10px 0;
+  }
+.anypoint-styles h4, .anypoint-styles h5, .anypoint-styles h6, .anypoint-styles p {
+    margin: 10px 0 10px 0;
+  }
+.anypoint-styles fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+.anypoint-styles fieldset label {
+      display: inline-block;
+    }
+.anypoint-styles fieldset label:first-child {
+      margin-top: 0;
+    }
+.anypoint-styles fieldset legend {
+      font-size: 20px;
+      margin: 0 0 10px 0;
+      padding: 0;
+      font-weight: 300;
+      color: #3A3B3C;
+      width: 100%;
+      border-bottom: 1px solid #E8E9EA;
+    }
+.anypoint-styles blockquote {
+    color: #6B6C6D;
+    padding: 10px 20px;
+    margin: 10px 0 10px;
+    border-left: 3px solid #989A9B;
+  }
+.anypoint-styles code {
+    font-family: 'Source Code Pro', monospace;
+    padding: 2px 4px;
+    color: #3A3B3C;
+    background-color: #F4F5F6;
+  }
+.anypoint-styles pre {
+    padding: 9.5px;
+    margin: 0 0 10px 0;
+    background-color: #F4F5F6;
+    border: 1px solid #CACBCC;
+    word-break: break-all;
+    word-wrap: break-word;
+    line-height: 1.42;
+  }
+.anypoint-styles hr {
+    border: 0;
+    border-top: 1px solid #E8E9EA;
+  }
+

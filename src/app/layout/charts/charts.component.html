@@ -9,11 +9,11 @@
             <mat-card-subtitle>{{list.apiClassification}}</mat-card-subtitle>
           </mat-card-header>
           <mat-card-content style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;padding-left:
-          16px ">
+          16px "  >
             {{list.apiDescription}} </mat-card-content>
           <img mat-card-image [src]="list.imageURL">
           <mat-card-actions style="padding-left:50px;padding-inline: 10px">
-            <button mat-button (click)="diaplayDescription(list.apiName, list.MuleApi)">Details</button>
+            <button  mat-button class=".btn-block" (click)="diaplayDescription(list.apiName, list.MuleApi)">Details</button>
 
           </mat-card-actions>
           <div *ngIf="list.muleApi" style="margin-left: 125px;
@@ -38,9 +38,9 @@
       <br>
       <div *ngFor="let list of cardsList">
         <div *ngIf="list.apiName == cardClicked">
-          <p style="padding-left:250px">
-            {{list.apiLongDescription}}
-          </p>
+          <div style="padding-left:250px" [innerHTML]= "list.apiLongDescription">
+            
+          </div>
           <a style="padding-left:350px"  *ngIf="list.muleApi" [href]="this.url" target="_blank">
             <button  mat-raised-button >Go To API</button>
           </a>
