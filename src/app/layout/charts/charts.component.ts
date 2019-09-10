@@ -23,6 +23,7 @@ export class ChartsComponent implements OnInit {
         this.cardClicked = value;
 
     }
+   
     ngOnInit() {
         this.fullImagePath = '../../../assets/API-icon.png'
         this._APIService.get()

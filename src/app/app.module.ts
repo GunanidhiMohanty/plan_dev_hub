@@ -1,4 +1,5 @@
 import { APIService } from './shared/services/APIService';
+import 'hammerjs'; 
 import { LayoutModule } from '@angular/cdk/layout';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,9 @@ import {
     MatExpansionModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatDialog
+    
+    MatDialog,
+    MatTooltipModule
 
 
 
@@ -57,6 +60,8 @@ export const createTranslateLoader = (http: HttpClient) => {
         HttpClientModule,
         FormsModule,
         HttpModule,
+        MatTooltipModule,
+        BrowserAnimationsModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
