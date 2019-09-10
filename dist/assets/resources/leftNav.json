@@ -1,0 +1,75 @@
+{  
+    "DEFAULT":[  
+       {  
+          "classification":"technicalAPI",
+          "name":"NA",
+          "details":{  
+             "message":"NA",
+             "status":"NA",
+             "platform":"NA"
+          }
+       }
+    ],
+    "HEALTHCARE":[  
+       {  
+          "Providers":[  
+             {  
+                "classification":"Partner",
+                "name":"Create/Change/Delete Profit Center in SAP HANA",
+                "details":{  
+                   "message":"This service will read exchange rate info in S4 hana System",
+                   "status":"Released",
+                   "platform":"Apigee"
+                }
+             },
+             {  
+                "classification":"Public",
+                "name":"Create/ Delete Cost Center in SAP HANA",
+                "details":{  
+                   "message":"This service will read exchange rate info in S4 hana System",
+                   "status":"Released",
+                   "platform":"Mulesoft"
+                }
+             },
+             {  
+                "classification":"Private",
+                "name":"Update exchange rate information in SAP HANA",
+                "details":{  
+                   "message":"This service will read exchange rate info in S4 hana System",
+                   "status":"Released",
+                   "platform":"Apigee"
+                }
+             },
+             {  
+                "classification":"Partner",
+                "name":"Create/Change/Delete material in SAP HANA",
+                "details":{  
+                   "message":"This service will read exchange rate info in S4 hana System",
+                   "status":"Released",
+                   "platform":"Mulesoft"
+                }
+             }
+          ],
+          "Claims":[  
+             {  
+ 
+             }
+          ],
+          "Memebers":[  
+             {  
+ 
+             }
+          ]
+       }
+    ],
+    "BANKING":[  
+       {  
+ 
+       }
+    ],
+    "INSURANCE":[  
+       {  
+ 
+       }
+    ]
+ }

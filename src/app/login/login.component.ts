@@ -12,22 +12,21 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 
 export class LoginComponent implements OnInit {
-    constructor(private router: Router, private _APIService:APIService) {}
-    public message:string;
+    constructor(private router: Router, private _APIService: APIService) { }
+    public message: string;
     public flag;
 
     form: FormGroup = new FormGroup({
         username: new FormControl(''),
         password: new FormControl(''),
-      });
-    //public login = new LoginCredentials;
-    
-    ngOnInit() {}
+    });
+
+    ngOnInit() { }
 
     onLogin() {
-        if(this.form.value.username=='admin' && this.form.value.password=='admin'){
-        console.log(this.form.value.username);
-        this.router.navigate([""]);
+        if (this.form.value.username == 'admin' && this.form.value.password == 'admin') {
+            console.log(this.form.value.username);
+            this.router.navigate([""]);
         }
     }
 }

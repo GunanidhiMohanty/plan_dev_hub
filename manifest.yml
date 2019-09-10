@@ -1,0 +1,7 @@
+applications:
+- name: ui-hcare-planhub
+  disk_quota: 1G
+  memory: 750M
+  instances: 1
+  path: target/ui-planhub-1.0.jar
+  buildpack: staticfile_buildpack 

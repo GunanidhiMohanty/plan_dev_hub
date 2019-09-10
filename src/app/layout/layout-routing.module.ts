@@ -10,14 +10,13 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-           
+
             {
                 path: 'healthcare',
                 component: ConfigurationsComponent,
-                // canActivate: [AuthGuard]
             },
-           
-           
+
+
         ]
     }
 ];
@@ -26,4 +25,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
 })
-export class LayoutRoutingModule {}
+export class LayoutRoutingModule { }

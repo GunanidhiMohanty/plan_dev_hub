@@ -1,23 +1,30 @@
 <div *ngIf="countryCodes()" class="container-fluid">
   <div class="row">
     <div *ngFor="let list of cardsList">
-      <div class="col-sm-5" style="padding-left:250px">
+      <div class="col-sm-4" style="padding-left:60px">
         <br>
         <mat-card class="example-card">
           <mat-card-header>
             <mat-card-title>{{list.apiName}}</mat-card-title>
             <mat-card-subtitle>{{list.apiClassification}}</mat-card-subtitle>
           </mat-card-header>
-          <mat-card-content style="overflow:hidden">
+          <mat-card-content style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;padding-left:
+          16px ">
             {{list.apiDescription}} </mat-card-content>
           <img mat-card-image [src]="list.imageURL">
-          <mat-card-actions style="padding-left:50px">
-            <button class="btn btn-link " mat-button (click)="diaplayDescription(list.apiName, list.isMuleApi)">Details</button>
-          </mat-card-actions>
-          <mat-card-footer *ngIf="list.isMuleApi" style='padding-left : 127px'>
+          <mat-card-actions style="padding-left:50px;padding-inline: 10px">
+            <button mat-button (click)="diaplayDescription(list.apiName, list.MuleApi)">Details</button>
 
-            <img class="icon" mat-card-image [src]="fullImagePath">
-          </mat-card-footer>
+          </mat-card-actions>
+          <div *ngIf="list.muleApi" style="margin-left: 125px;
+          padding-bottom: 39px;
+          margin-top: -20px;
+      ">
+            <img mat-card-image [src]="fullImagePath"></div>
+          <!-- <mat-card-footer  style='padding-left : 90px'>
+
+            
+          </mat-card-footer> -->
         </mat-card>
       </div>
     </div>
@@ -30,21 +37,15 @@
       <br>
       <br>
       <div *ngFor="let list of cardsList">
-        <p *ngIf="list.apiName == cardClicked" style="padding-left:250px">
-          {{list.apiLongDescription}}
-        </p>
+        <div *ngIf="list.apiName == cardClicked">
+          <p style="padding-left:250px">
+            {{list.apiLongDescription}}
+          </p>
+          <a style="padding-left:350px"  *ngIf="list.muleApi" [href]="this.url" target="_blank">
+            <button  mat-raised-button >Go To API</button>
+          </a>
+
+        </div>
       </div>
-    </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <div class="row">
-    <div class="col-sm-3"></div>
-    <div class="col-sm-3">
-      <a *ngIf="isMuleApi"  [href]="this.url" target="_blank">
-        <button  mat-raised-button >Go To API</button>
-      </a>
-      <div class="col-sm-3"></div>
     </div>
   </div>

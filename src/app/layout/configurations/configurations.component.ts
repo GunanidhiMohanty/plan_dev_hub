@@ -1,9 +1,7 @@
 import { ApiDetails } from './../../shared/modals/apidetails';
-
 import { Provider } from './../../shared/modals/provider';
-
 import { Component, OnInit } from '@angular/core';
-import { APIService, _isExcel, setexcel } from '../../shared/services/APIService';
+import { APIService, setCardDetail } from '../../shared/services/APIService';
 import { Domains } from '../../shared/modals/domain';
 
 
@@ -15,21 +13,16 @@ import { Domains } from '../../shared/modals/domain';
 })
 export class ConfigurationsComponent implements OnInit {
   fullImagePath: string;
-  isExcel: boolean = false;
   newProviderList: Array<Provider> = new Array<Provider>();
-  //images: Array<string> = new Array<String>;
   public displayComponent;
-  public numbers;
   public listDomains: Array<Domains>;
-  public filteredFriends: boolean;
   public provider: Provider;
-  showMuleApi: boolean;
-  public i = 0;
   public listProvider: Array<Provider>;
   public newCardsList = [];
   public listDomainsBackened: Array<Domains>;
 
   constructor(private _APIService: APIService) {
+
     this.listProvider = new Array<Provider>();
     this.listDomains = new Array<Domains>();
     this.newCardsList = new Array<ApiDetails>();
@@ -41,79 +34,59 @@ export class ConfigurationsComponent implements OnInit {
       this.displayComponent = 'claims';
       this._APIService.setproviderListDisplay(this.newProviderList);
       this.loadValues();
-      setexcel(true);
-      this.showMuleApi = true;
-
-      // this._APIService.setisExcel(true);
+      setCardDetail(true);
 
     }
     if (value == 'member') {
       this.displayComponent = 'member';
       this.loadValues();
       console.log(this.displayComponent);
-      this.showMuleApi = true;
-      setexcel(true);
+      setCardDetail(true);
     }
     if (value == 'provider') {
       this.displayComponent = 'provider';
       this.loadValues();
-      this.showMuleApi = true;
-      setexcel(true);
+      setCardDetail(true);
     }
   }
 
   ngOnInit() {
     this._APIService.get().subscribe((list: Provider[]) => {
       this.listProvider = list;
-      console.log(this.listProvider);
     },
       error => { console.log(error) }
     );
     this._APIService.getLoggedinUser().subscribe((data: Domains[]) => {
       this.listDomainsBackened = data;
-      console.log(this.listDomainsBackened);
-    });    // this._APIService.apidetails().subscribe((data:Description[])=>{
-    //   this.description=data;
-    //   console.log(this.description);
-    // },
-    // error =>{
-    //   console.log(error);
-    // });
-
+    });
   }
 
 
 
   loadValues() {
     if (this.displayComponent == 'claims') {
-      console.log(this.showMuleApi);
-      //this._APIService.setisExcel(true);
       this.newCardsList = [];
+      this.listDomainsBackened[0].lobList.forEach(lob => {
+        lob.apiList.forEach(apnNm => {
+          if (this.listProvider.find(api => (api.apiName.trim() === apnNm.apiName.trim()))) {
+            apnNm.muleApi = true;
+            apnNm.apiDescription = this.listProvider.find(prov => (prov.apiName.trim() === apnNm.apiName)).description;
+
+          }
+        });
+      });
       this.listDomainsBackened.forEach(obj => {
         obj.lobList.forEach(obj1 => {
           if (obj1.lobName == 'claims') {
             obj1.apiList.forEach(obj2 => {
               this.newCardsList.push(obj2);
             })
-            // this.newCardsList=obj1.apidetails;
 
           }
 
         })
       });
-      this.listDomainsBackened.forEach(obj => {
-        obj.lobList.forEach(obj1 => {
-          this.listProvider.forEach(provider => {
-            obj1.apiList.forEach(obj2 => {
-              if (obj2.apiName.trim() === provider.apiName.trim()) {
-                obj2.apiDescription = provider.description;
-                obj2.isMuleApi = true;
-              }
-            })
 
-          })
-        });
-      });
 
     }
     if (this.displayComponent == 'member') {
@@ -124,7 +97,6 @@ export class ConfigurationsComponent implements OnInit {
             obj1.apiList.forEach(obj2 => {
               this.newCardsList.push(obj2);
             })
-            // this.newCardsList=obj1.apidetails;
 
           }
 
@@ -132,16 +104,19 @@ export class ConfigurationsComponent implements OnInit {
       });
       this.listDomainsBackened.forEach(obj => {
         obj.lobList.forEach(obj1 => {
-          this.listProvider.forEach(provider => {
-            obj1.apiList.forEach(obj2 => {
-              if (obj2.apiName.trim() === provider.apiName.trim()) {
-                obj2.apiDescription = provider.description;
-                obj2.isMuleApi = true;
-              }
-            })
+          if (obj1.lobName == 'member') {
+            this.listProvider.forEach(provider => {
+              obj1.apiList.forEach(obj2 => {
+                if (obj2.apiName.trim() === provider.apiName.trim()) {
+                  obj2.apiDescription = provider.description;
+                  obj2.muleApi = true;
+                }
+              })
 
-          })
+            })
+          }
         });
+
       });
     }
     if (this.displayComponent == 'provider') {
@@ -153,33 +128,27 @@ export class ConfigurationsComponent implements OnInit {
               this.newCardsList.push(obj2);
 
             })
-            // this.newCardsList=obj1.apidetails;
-
           }
 
         })
       });
       this.listDomainsBackened.forEach(obj => {
         obj.lobList.forEach(obj1 => {
-          this.listProvider.forEach(provider => {
-            obj1.apiList.forEach(obj2 => {
-              if (obj2.apiName.trim() === provider.apiName.trim()) {
-                obj2.apiDescription = provider.description;
-                obj2.isMuleApi = true;
-              }
-            })
+          if (obj1.lobName == 'provider') {
+            this.listProvider.forEach(provider => {
+              obj1.apiList.forEach(obj2 => {
+                if (obj2.apiName.trim() === provider.apiName.trim()) {
+                  obj2.apiDescription = provider.description;
+                  obj2.muleApi = true;
+                }
+              })
 
-          })
+            })
+          }
         });
+
       });
 
     }
-    // show(value){
-    //   console.log("emitted");
-    //   console.log(value);
-    //   this.filteredFriends=value;
-    //   if(value==false){
-    //     this.isExcel=false;
-    //   }
   }
 }

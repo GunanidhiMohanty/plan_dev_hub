@@ -1,11 +1,11 @@
 
 .navbar-fixed-left {
   width: 223px;
-  position: fixed;
+  
   border-radius: 0;
   height: 100%;
-  // top: 0;
-  // z-index: 1;
+   top: 0;
+   z-index: 1;
   // overflow-y: hidden; 
 }
 .btn-block {
@@ -18,10 +18,7 @@
   width: 149px;
 }
 
-.navbar-fixed-left + .container {
-  padding-left: 253px;
-  background-image: getUrl();
-}
+
 
 button{text-align: left}
 
@@ -29,14 +26,14 @@ button{text-align: left}
 /* On using dropdown menu (To right shift popuped) */
 .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
   
-  margin-left: 140px;
+  margin-left: 40px;
 }
 ul li:after {
  
   height: 1px;
   width: 132%;
   margin: 10px;
-  background:rgb(128,128,128);
+  background:rgb(219, 207, 207);
 }
 .navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;  height: 13px;}
 .navbar {min-height:32px !important; }
@@ -44,9 +41,12 @@ a.disabled {
 pointer-events: none;
 cursor: default;
 }
+_ngcontent-c5{
+  color:#f1eded;
+}
 body {background-color: red;}
 .btn-block {
-background-color:#252725; /* Green */
+background-color:black; 
 display: block;
 /*width: 102%;*/
 padding: 15px 32px;
@@ -55,5 +55,5 @@ border-color:transparent;
 }
 .btn-primary:hover{
 border-color:transparent;
-background-color: #696969;
+background-color:green;
 }

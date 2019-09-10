@@ -1,4 +1,4 @@
-export class Provider{
+export class Provider {
     public groupId;
     public assetId;
     public version;
@@ -29,6 +29,5 @@ export class Provider{
     public businessarea;
     public apitype;
     public assetUrl;
-    
-    }
-    
+
+}
