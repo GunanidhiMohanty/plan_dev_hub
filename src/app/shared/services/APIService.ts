@@ -20,8 +20,8 @@ export class APIService {
 
   get() {
     const creditentials = {
-      username: 'vmorasa1',
-      password: 'Addanki@2662'
+      username: 'Mock',
+      password: 'Deloitte@1'
     };
 
     return this.httpClient.post("//api-retrieveassets-exchange-qa.us-e2.cloudhub.io/organization/portal/assets", creditentials)
